@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 import { IconButton } from '@material-ui/core/';
 import Tooltip from '@material-ui/core/Tooltip';
 
-function WithNavigationIcon({ goTo, children, goToPath, tooltip }) {
+function WithNavigationIcon({ goTo, children, goToPath, tooltip, ...props }) {
     return (
         <Tooltip title={tooltip}>
-            <IconButton color="inherit" onClick={() => goTo(goToPath)}>
+            <IconButton {...props} color="inherit" onClick={() => goTo(goToPath)}>
                 {children}
             </IconButton>
         </Tooltip>

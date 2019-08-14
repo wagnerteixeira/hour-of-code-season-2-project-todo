@@ -4,6 +4,20 @@ import { Grid } from '@material-ui/core';
 
 import TodoList from './todoList';
 
+const todos = [
+    {
+        title: "Título 1",
+        assignee:" User 1"
+    },
+    {
+        title: "Título 2",
+        assignee:" User 2"
+    },
+    {
+        title: "Título 3",
+        assignee:" User 3"
+    }
+]
 
 const useStyles = makeStyles({
     container: {
@@ -14,10 +28,10 @@ const useStyles = makeStyles({
 function TodoContainer(props) {
     const classes = useStyles();
     return (
-        <Grid container  direction="row" justify="space-evenly" className={classes.container} >
-            <TodoList />
-            <TodoList />
-            <TodoList />
+        <Grid container  direction="row" justify="space-around" className={classes.container} >
+            <TodoList headerTitle="A fazer" todos={todos} type="TODO"/>
+            <TodoList headerTitle="Fazendo" todos={todos} type="DOING"/>
+            <TodoList headerTitle="Feito" todos={todos} type="DONE"/>
         </Grid>
     )
 }

@@ -11,13 +11,20 @@ const useStyles = makeStyles({
     root: {
         flexGrow: 1,
     },
+    appBar:{
+        backgroundColor: '#3C4858',
+        width: '99%',
+        marginLeft: '0.5%',
+        marginTop: 3,
+        borderRadius: 4
+    }
 });
 
 export default function SimpleAppBar(props) {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="primary">
+            <AppBar position="static" className={classes.appBar} >
                 <Toolbar>
                     <Grid
                         container
