@@ -10,6 +10,7 @@ import { withRouter } from 'react-router';
 import { Grid } from '@material-ui/core';
 
 import WithNavigationIcon from '../navigation/withNavigationIcon';
+import TodoIconTyped from './todoIconTyped';
 
 const useStyles = makeStyles({
     card: {
@@ -40,26 +41,13 @@ function TodoHeaderList({ title, type, ...props }) {
 
     function goTo(path) {
         props.history.push(path);
-    };
-
-    function getIconTyped() {
-        switch (type) {
-            case 'TODO':
-                return <ListAlt fontSize="large" />;
-            case 'DOING':
-                return <Update fontSize="large" />;
-            case 'DONE':
-                return <CheckCircleOutline fontSize="large" />
-            default:
-                return null;
-        }
-    }
+    };   
 
     return (
         <Card color='inherited' className={classes.card}>
             <CardContent className={classes.cardContent}>
                 <Grid container className={classes.gridContainer} direction="row" justify="flex-start" >
-                    {getIconTyped()}
+                    <TodoIconTyped type={type} />
                     <Grid item>
                         <Typography className={classes.title} variant="h5" component="h2">
                             {title}
@@ -67,7 +55,7 @@ function TodoHeaderList({ title, type, ...props }) {
                     </Grid>
                     <Grid item xs>
                         <Grid container direction="row" justify="flex-end">
-                            <WithNavigationIcon className={classes.addCircle} goTo={goTo} goToPath="add-todo" tooltip={'Adicionar tarefa'} >
+                            <WithNavigationIcon className={classes.addCircle} goTo={goTo} goToPath="todo-form" tooltip={'Adicionar tarefa'} >
                                 <AddCircle fontSize="large" />
                             </WithNavigationIcon>
                         </Grid>

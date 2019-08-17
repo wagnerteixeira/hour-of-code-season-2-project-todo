@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import { Card, CardContent, Grid, IconButton, Tooltip } from '@material-ui/core';
 //import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
+import { Delete, Edit } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
     card: {
@@ -41,19 +41,40 @@ const useStyles = makeStyles(theme => ({
     pos: {
         marginBottom: 15,
     },
+    iconButton: {        
+        color: theme.palette.common.white
+    },
 }));
 
 function TodoItem({ title, assignee, type }) {
     const classes = useStyles({ type });
     return (
         <Card className={classes.card}>
-            <CardContent >
-                <Typography className={classes.pos} variant="h5" component="h2">
-                    {title}
-                </Typography>
-                <Typography variant="body2" component="p">
-                    {assignee}
-                </Typography>
+            <CardContent>
+                <Grid container direction="row" justify="flex-start">
+                    <Grid item>
+                        <Typography className={classes.pos} variant="h5" component="h2">
+                            {title}
+                        </Typography>
+                        <Typography variant="body2" component="p">
+                            {assignee}
+                        </Typography>
+                    </Grid>
+                    <Grid item xs>
+                        <Grid container direction="column" alignItems="flex-end">
+                            <Tooltip title="Editar">
+                                <IconButton aria-label="edit" className={classes.iconButton}>
+                                    <Edit fontSize="small" color="inherit" />
+                                </IconButton>
+                            </Tooltip>
+                            <Tooltip title="Deletar">
+                                <IconButton aria-label="delete" className={classes.iconButton}>
+                                    <Delete fontSize="small" color="inherit" />
+                                </IconButton>
+                            </Tooltip>
+                        </Grid>
+                    </Grid>
+                </Grid>
             </CardContent>
             {/*<CardActions>                
             </CardActions>*/}

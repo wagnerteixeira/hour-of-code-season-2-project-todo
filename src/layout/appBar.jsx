@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     root: {
         flexGrow: 1,
     },
-    appBar:{
+    appBar: {
         backgroundColor: '#3C4858',
         width: '99%',
         marginLeft: '0.5%',
@@ -34,7 +34,7 @@ export default function SimpleAppBar(props) {
                     >
                         <Typography variant="h6" color="inherit">
                             Todo List
-          </Typography>
+                        </Typography>
                         <Navigation />
                     </Grid>
                 </Toolbar>
