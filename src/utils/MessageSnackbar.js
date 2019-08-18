@@ -100,7 +100,6 @@ function MessageSnackbar(props) {
 }
 
 MessageSnackbar.propTypes = {
-  classes: PropTypes.object.isRequired,
   onClose: PropTypes.func,
   teste: PropTypes.func,
   open: PropTypes.bool.isRequired,
