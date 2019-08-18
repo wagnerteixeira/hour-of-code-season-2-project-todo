@@ -7,9 +7,7 @@ import TodoItem from './todoItem';
 import TodoHeaderList from './todoHeaderList';
 
 const useStyles = makeStyles({
-    container: {
-        width: '31%'
-    },
+   
 });
 
 
@@ -27,7 +25,7 @@ function TodoList({ todos, headerTitle, status, ...props }) {
             return todos.map(todo => <TodoItem  goTo={goTo} key={todo.id} todo={todo} />);
     }
     return (
-        <Grid container direction="column" justify="flex-start" className={classes.container}>
+        <Grid container direction="column" justify="flex-start">
             <TodoHeaderList title={headerTitle} status={status} goTo={goTo} />
             {mapTodos()}
         </Grid>

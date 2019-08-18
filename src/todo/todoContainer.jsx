@@ -8,20 +8,27 @@ import TodoList from './todoList';
 
 
 
-const useStyles = makeStyles({
+const useStyles = makeStyles( theme => ({
     container: {
         width: '100%',
+        marginLeft: theme.spacing(0.05)
     },
-});
+}));
 
 function TodoContainer({ todoList, doingList, doneList }) {
     const classes = useStyles();
 
     return (
-        <Grid container direction="row" justify="space-around" className={classes.container} >
-            <TodoList headerTitle="A fazer" todos={todoList} status="TODO" />
-            <TodoList headerTitle="Fazendo" todos={doingList} status="DOING" />
-            <TodoList headerTitle="Feito" todos={doneList} status="DONE" />
+        <Grid container spacing={3} direction="row" justify="space-around" className={classes.container} >
+            <Grid item xs={12} sm={12} md={4}>
+                <TodoList headerTitle="A fazer" todos={todoList} status="TODO" />
+            </Grid>
+            <Grid item xs={12} sm={12} md={4}>
+                <TodoList headerTitle="Fazendo" todos={doingList} status="DOING" />
+            </Grid>
+            <Grid item xs={12} sm={12} md={4}>
+                <TodoList headerTitle="Feito" todos={doneList} status="DONE" />
+            </Grid>
         </Grid>
     )
 }
