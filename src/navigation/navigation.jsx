@@ -12,7 +12,6 @@ const useStyles = makeStyles({
 });
 
 function Navigation(props) {
-    console.log(props);    
     const classes = useStyles();
     function goTo(path) {
         props.history.push(path);

@@ -1,23 +1,12 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
 
+import WithLoading from '../layout/withLoading';
 import TodoList from './todoList';
 
-const todos = [
-    {
-        title: "Título 1",
-        assignee:" User 1"
-    },
-    {
-        title: "Título 2",
-        assignee:" User 2"
-    },
-    {
-        title: "Título 3",
-        assignee:" User 3"
-    }
-]
+
 
 const useStyles = makeStyles({
     container: {
@@ -25,15 +14,22 @@ const useStyles = makeStyles({
     },
 });
 
-function TodoContainer(props) {
+function TodoContainer({ todoList, doingList, doneList }) {
     const classes = useStyles();
+
     return (
-        <Grid container  direction="row" justify="space-around" className={classes.container} >
-            <TodoList headerTitle="A fazer" todos={todos} type="TODO"/>
-            <TodoList headerTitle="Fazendo" todos={todos} type="DOING"/>
-            <TodoList headerTitle="Feito" todos={todos} type="DONE"/>
+        <Grid container direction="row" justify="space-around" className={classes.container} >
+            <TodoList headerTitle="A fazer" todos={todoList} status="TODO" />
+            <TodoList headerTitle="Fazendo" todos={doingList} status="DOING" />
+            <TodoList headerTitle="Feito" todos={doneList} status="DONE" />
         </Grid>
     )
 }
 
-export default TodoContainer;
+TodoContainer.propTypes = {
+    todoList: PropTypes.array.isRequired,
+    doingList: PropTypes.array.isRequired,
+    doneList: PropTypes.array.isRequired
+}
+
+export default WithLoading(TodoContainer);

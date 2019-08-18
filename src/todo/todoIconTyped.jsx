@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { ListAlt, CheckCircleOutline, Update } from '@material-ui/icons';
 
-function TodoIconTyped({ type, ...props }) {
-    switch (type) {
+function TodoIconTyped({ status, ...props }) {
+    switch (status) {
         case 'TODO':
             return <ListAlt fontSize="large" {...props} />;
         case 'DOING':
@@ -14,4 +15,7 @@ function TodoIconTyped({ type, ...props }) {
     }
 }
 
+TodoIconTyped.propTypes ={
+    status: PropTypes.string.isRequired
+}
 export default TodoIconTyped;

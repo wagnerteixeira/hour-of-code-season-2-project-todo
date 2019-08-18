@@ -7,18 +7,18 @@ import Typography from '@material-ui/core/Typography';
 
 import Navigation from '../navigation/navigation';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
     },
     appBar: {
-        backgroundColor: '#3C4858',
+        backgroundColor: theme.palette.appBar,
         width: '99%',
         marginLeft: '0.5%',
         marginTop: 3,
         borderRadius: 4
     }
-});
+}));
 
 export default function SimpleAppBar(props) {
     const classes = useStyles();

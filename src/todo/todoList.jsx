@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
+import { withRouter } from 'react-router';
 
 import TodoItem from './todoItem';
 import TodoHeaderList from './todoHeaderList';
@@ -12,21 +13,26 @@ const useStyles = makeStyles({
 });
 
 
-function TodoList({ todos, headerTitle, type }) {
-    const classes = useStyles({ type });
+function TodoList({ todos, headerTitle, status, ...props }) {
+    const classes = useStyles();
+
+    function goTo(path, state) {
+        props.history.push(path, state);
+    };   
+
     function mapTodos() {
         if ((!todos) || (!todos.length))
             return <Typography align="center">Não existem tarefas</Typography>;
         else
-            return todos.map(todo => <TodoItem title={todo.title} assignee={todo.assignee} type={type} />);
+            return todos.map(todo => <TodoItem  goTo={goTo} key={todo.id} todo={todo} />);
     }
     return (
         <Grid container direction="column" justify="flex-start" className={classes.container}>
-            <TodoHeaderList title={headerTitle} type={type} />
+            <TodoHeaderList title={headerTitle} status={status} goTo={goTo} />
             {mapTodos()}
         </Grid>
     )
 }
 
 
-export default TodoList;
+export default withRouter(TodoList);

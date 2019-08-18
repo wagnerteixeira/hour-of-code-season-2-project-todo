@@ -3,9 +3,10 @@ import AppBar from './layout/appBar';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/styles';
 import { createMuiTheme } from '@material-ui/core/styles';
-import blue from '@material-ui/core/colors/blue';
+import { Provider } from 'react-redux';
+import store from './store';
 
-import TodoContainer from './todo/todoContainer';
+import TodoPage from './todo/todoPage';
 import TodoForm from './todo/todoForm';
 
 function NoMatch({ location }) {
@@ -30,29 +31,31 @@ const theme = createMuiTheme({
       firstColor: '#66bb6a',
       secondColor: '#43a047'
     },
-    doing:{
+    doing: {
       firstColor: '#26c6da',
-      secondColor: '#00acc1', 
-    },    
+      secondColor: '#00acc1',
+    },
     done: {
       firstColor: '#ffa726',
-      secondColor: '#fb8c00', 
-      
+      secondColor: '#fb8c00',
     },
+    appBar: '#626C79',
   },
 });
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <BrowserRouter>
-        <AppBar />
-        <Switch>
-          <Route exact path="/" component={TodoContainer} />
-          <Route exact path="/todo-form" component={TodoForm} />
-          <Route component={NoMatch} />
-        </Switch>
-      </BrowserRouter>
+      <Provider store={store}>
+        <BrowserRouter>
+          <AppBar />
+          <Switch>
+            <Route exact path="/" component={TodoPage} />
+            <Route exact path="/todo-form" component={TodoForm} />
+            <Route component={NoMatch} />
+          </Switch>
+        </BrowserRouter>
+      </Provider>
     </ThemeProvider>
   );
 }
