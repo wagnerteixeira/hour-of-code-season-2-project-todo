@@ -179,7 +179,6 @@ function TodoForm(props) {
                         rows="4"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        defaultValue="Descrição"
                         className={classes.textField}
                         margin="normal"
                     />

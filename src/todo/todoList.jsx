@@ -1,20 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Typography } from '@material-ui/core';
 import { withRouter } from 'react-router';
 
 import TodoItem from './todoItem';
 import TodoHeaderList from './todoHeaderList';
 
-const useStyles = makeStyles({
-   
-});
-
-
 function TodoList({ todos, headerTitle, status, ...props }) {
-    const classes = useStyles();
-
-    function goTo(path, state) {
+     function goTo(path, state) {
         props.history.push(path, state);
     };   
 
