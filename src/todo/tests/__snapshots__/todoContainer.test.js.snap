@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <TodoContainer /> render <TodoContainer />  1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      },
+    }
+  }
+>
+  <Connect(WithStyles(PureComponent))
+    doingList={
+      Array [
+        Object {
+          "assignee": "Assignee 2",
+          "description": "Description 2",
+          "id": "2",
+          "status": "DOING",
+          "title": "Title 2",
+        },
+        Object {
+          "assignee": "Assignee 5",
+          "description": "Description 5",
+          "id": "5",
+          "status": "DOING",
+          "title": "Title 5",
+        },
+      ]
+    }
+    doneList={
+      Array [
+        Object {
+          "assignee": "Assignee 3",
+          "description": "Description 3",
+          "id": "3",
+          "status": "DONE",
+          "title": "Title 3",
+        },
+        Object {
+          "assignee": "Assignee 6",
+          "description": "Description 6",
+          "id": "6",
+          "status": "DONE",
+          "title": "Title 6",
+        },
+      ]
+    }
+    todoList={
+      Array [
+        Object {
+          "assignee": "Assignee 1",
+          "description": "Description 1",
+          "id": "1",
+          "status": "TODO",
+          "title": "Title 1",
+        },
+        Object {
+          "assignee": "Assignee 4",
+          "description": "Description 4",
+          "id": "4",
+          "status": "TODO",
+          "title": "Title 4",
+        },
+        Object {
+          "assignee": "Assignee 7",
+          "description": "Description 7",
+          "id": "7",
+          "status": "TODO",
+          "title": "Title 7",
+        },
+      ]
+    }
+  />
+</ContextProvider>
+`;

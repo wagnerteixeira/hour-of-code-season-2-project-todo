@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test <TodoList /> render <TodoList />  1`] = `
+<ContextProvider
+  value={
+    Object {
+      "store": Object {
+        "dispatch": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+        Symbol(observable): [Function],
+      },
+      "subscription": Subscription {
+        "handleChangeWrapper": [Function],
+        "listeners": Object {
+          "clear": [Function],
+          "get": [Function],
+          "notify": [Function],
+          "subscribe": [Function],
+        },
+        "onStateChange": [Function],
+        "parentSub": undefined,
+        "store": Object {
+          "dispatch": [Function],
+          "getState": [Function],
+          "replaceReducer": [Function],
+          "subscribe": [Function],
+          Symbol(observable): [Function],
+        },
+        "unsubscribe": [Function],
+      },
+    }
+  }
+>
+  <withRouter(TodoList)
+    headerTitle="A fazer"
+    status="TODO"
+    todos={
+      Array [
+        Object {
+          "assignee": "Assignee 1",
+          "description": "Description 1",
+          "id": "1",
+          "status": "TODO",
+          "title": "Title 1",
+        },
+        Object {
+          "assignee": "Assignee 4",
+          "description": "Description 4",
+          "id": "4",
+          "status": "TODO",
+          "title": "Title 4",
+        },
+        Object {
+          "assignee": "Assignee 7",
+          "description": "Description 7",
+          "id": "7",
+          "status": "TODO",
+          "title": "Title 7",
+        },
+      ]
+    }
+  />
+</ContextProvider>
+`;
